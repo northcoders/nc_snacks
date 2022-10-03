@@ -6,11 +6,3 @@ if (!process.env.PGDATABASE) {
 }
 
 module.exports = pool;
-
-// function getSnacks() {
-//   pool.query('SELECT * FROM snacks').then(({ rows: snacks }) => {
-//     console.log(snacks);
-//     pool.end();
-//   });
-// }
-// getSnacks();
