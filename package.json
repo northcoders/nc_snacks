@@ -4,9 +4,9 @@
   "description": "We're making an api to keep track of all the tasty treats that the northcoders eat throughout the day. Some setup has been done to write a seed script to populate the database and your task is to create the first end point.",
   "main": "app.js",
   "scripts": {
-    "test": "npm run setup-db && PGDATABASE=nc_snacks jest",
     "setup-db": "psql -f db/nc_snacks.sql",
-    "dev": "PGDATABASE=nc_snacks nodemon listen.js"
+    "test": "PGDATABASE=nc_snacks_test jest",
+    "dev": "PGDATABASE=nc_snacks node app.js"
   },
   "keywords": [],
   "author": "",
