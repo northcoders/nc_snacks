@@ -6,4 +6,19 @@ function fetchSnacks() {
   });
 }
 
-module.exports = fetchSnacks;
+function addSnack(snack) {
+  const { snack_name, snack_description } = snack;
+
+  return pool
+    .query(
+      `INSERT INTO snacks (
+    snack_name,
+    snack_description) VALUES ($1, $2) RETURNING *`,
+      [snack_name, snack_description]
+    )
+    .then(({ rows }) => {
+      return rows[0];
+    });
+}
+
+module.exports = { fetchSnacks, addSnack };

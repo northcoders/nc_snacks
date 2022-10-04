@@ -4,8 +4,10 @@
   "description": "We're making an api to keep track of all the tasty treats that the northcoders eat throughout the day. Some setup has been done to write a seed script to populate the database and your task is to create the first end point.",
   "main": "app.js",
   "scripts": {
-    "test": "npm run seed-test && PGDATABASE=nc_snacks jest",
-    "seed-test": "psql -f db/seed-test.sql"
+    "test": "npm run seed-test && jest",
+    "dev": "node app.js",
+    "seed-test": "psql -f db/seed-test.sql",
+    "seed-dev": "psql -f db/seed-dev.sql"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,7 @@
     "supertest": "^6.2.3"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "pg": "^8.8.0"
   }
