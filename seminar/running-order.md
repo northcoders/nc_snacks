@@ -1,17 +1,13 @@
 0. Recap - unit testing/integration testing
+   _unit testing - individual functions and methods on a granular level_
+   _integration testing checks that multiple parts of a project work cohesively together_
 1. refer to index.js line by line - where else can we set process.env
-2. Look at README
-3. refer to setup tables
-4. Tests - where jest, where supertest
-5. write tests FIRST
-6. GET rq - Take journey of func - log params
-7. refer to SQL injection
-8. return data - refer to syntax
+2. Tests - where jest, where supertest
+3. refer to SQL injection
+4. return data - refer to syntax
 
-9. Look at README
-10. Tests - where jest, where supertest
-11. POST rq - Take journey of func - log body
-12. app.use(express.json())
-13. return data - refer to syntax
-14. return data refer to {superhero_id: 4, ...newHero}
-15. Refer to sprint
+5. POST rq - Take journey of func - log body
+6. app.use(express.json())
+7. return data - refer to syntax
+8. return data refer to {superhero_id: 4, ...newHero}
+9. Refer to sprint

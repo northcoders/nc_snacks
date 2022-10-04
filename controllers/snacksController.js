@@ -12,4 +12,5 @@ function postSnack(request, response) {
     response.status(201).send({ snack });
   });
 }
+
 module.exports = { getSnacks, postSnack };

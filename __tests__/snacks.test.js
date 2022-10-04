@@ -42,18 +42,18 @@ describe('GET /api/drinks/drink_id', () => {
   });
 });
 
-describe('POST /api/superheroes', () => {
-  test('201: returns the snack object that has been added to the database', () => {
+describe.only('POST: /api/snacks', () => {
+  test('201: responds with the snack object that has been added', () => {
     const newSnack = {
       snack_name: 'Party Ring',
-      snack_description: 'time for a party'
+      snack_description: `Because it''s Party time`
     };
     return request(app)
       .post('/api/snacks')
       .send(newSnack)
       .expect(201)
-      .then((res) => {
-        const { snack } = res.body;
+      .then(({ body }) => {
+        const { snack } = body;
         expect(snack).toEqual({
           snack_id: 7,
           ...newSnack
