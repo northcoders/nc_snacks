@@ -9,5 +9,6 @@ jobs:
   greeting:
     runs-on: ubuntu-latest
     steps: 
-      name: say hello
-      run: echo 'RoRo is testing.'
+      - name: say hello
+        run: echo 'RoRo is testing.'
+
