@@ -1,13 +1,13 @@
 name: Test and deploy
 
-on: 
+on:
   push:
     branches:
-      - cicd-prepping
+      cicd-prepping
 
-jobs:
-  greeting:
-    runs-on: ubuntu-latest
-    steps:
-      name: say hello
-      run: echo "hi!"
+jobs: 
+  name: say hello
+  runs-on: ubuntu-latest
+  steps:
+    - name: greeting
+      run: echo 'hi there!'
