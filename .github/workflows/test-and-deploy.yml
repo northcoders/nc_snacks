@@ -13,8 +13,8 @@ jobs:
   test: 
     runs-on: ubuntu-latest
     steps: 
-      - name: checkout and clone
-        run: actions/checkout@v2
+      - name: checkout and clone repo
+        uses: actions/checkout@v3
       - name: install dependencies
         run: npm install
       - name: setup postgresql
