@@ -26,13 +26,12 @@ CREATE TABLE categories
 INSERT INTO snacks
   (snack_name, snack_description)
 VALUES
-  ('Kit Kat', 'time for a break'),
-  ('Hobnob', 'a modern classic'),
-  ('Banana', 'monkeys open them upside down'),
-  ('Chocolate covered raisins', 'you can never stop at one'),
-  ('Butter Croissant', 'always appreciated'),
-  ('Crisps', 'actually belong to Sam and he doesn''t know i''m stealing them, shhhhhh');
--- '' escapes the '
+('Kit Kat', 'time for a break'),
+('Hobnob', 'a modern classic'),
+('Banana', 'monkeys open them upside down'),
+('Chocolate covered raisins', 'you can never stop at one'),
+('Butter Croissant', 'always appreciated'),
+('Crisps', 'actually belong to Sam and he doesn''t know i''m stealing them, shhhhhh');
 
 INSERT INTO drinks
   (drink_name, drink_description)
