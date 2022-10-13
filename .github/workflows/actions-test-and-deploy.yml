@@ -5,7 +5,7 @@ on:
     branches:
       - cicd-prepping
 jobs: 
-  - name: Greeting
+  greeting:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello
