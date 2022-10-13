@@ -6,8 +6,9 @@ on:
       cicd-prepping
 
 jobs: 
-  name: say hello
-  runs-on: ubuntu-latest
-  steps:
-    - name: greeting
-      run: echo 'hi there!'
+  greeting:
+    name: say hello
+    runs-on: ubuntu-latest
+    steps:
+      - name: greeting
+        run: echo 'hi there!'
