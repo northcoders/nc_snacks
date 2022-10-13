@@ -23,4 +23,4 @@ jobs:
           pg database: test_db
           pg user: Ms_Theresa_Est
           pg password: pazzwurd1!
-        run: PGDATABASE=test_db PGUSER=Ms_Theresa_Est PGPASSWORD pazzwurd1! npm test
+          run: PGDATABASE=test_db PGUSER=Ms_Theresa_Est PGPASSWORD pazzwurd1! npm test
