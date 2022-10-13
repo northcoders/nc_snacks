@@ -23,7 +23,7 @@ jobs:
           postgresql db: nc_snacks
           postgresql user: Ms_Theresa_Est
           postgresql password: blorpbloop
-          postgresql port: 5432
+          postgresql entryport: 5432
       - name: Run Integration Tests
         run: PGDATABASE=nc_snacks PG_PORT=5432 PGUSER=Ms_Theresa_Est PGPASSWORD=blorpbloop npm test
         
