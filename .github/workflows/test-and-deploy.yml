@@ -21,9 +21,9 @@ jobs:
       - name: use postgresql
         uses: harmon758/postgresql-action@v1
         with: 
-          pg db: my_test_db
-          pg user: "testsy"
-          pg password: "pa55ta"
+          postgresql db: my_test_db
+          postgresql user: "testsy"
+          postgresql password: "pa55ta"
       - name: install dependencies
         run: npm i
       - name: run tests
