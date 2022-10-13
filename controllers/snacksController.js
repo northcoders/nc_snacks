@@ -1,6 +1,4 @@
-const res = require('express/lib/response');
-const app = require('../app');
-const fetchSnacks = require('../models/snacksModel');
+const { fetchSnacks, addSnack } = require('../models/snacksModel');
 
 function getSnacks(request, response) {
   fetchSnacks().then((snacks) => {
@@ -8,4 +6,16 @@ function getSnacks(request, response) {
   });
 }
 
-module.exports = getSnacks;
+function postSnack(request, response, next) {
+  const newSnack = request.body;
+  console.log(newSnack);
+  addSnack(newSnack)
+    .then((snack) => {
+      response.status(201).send({ snack });
+    })
+    .catch((err) => {
+      next(err);
+    });
+}
+
+module.exports = { getSnacks, postSnack };
