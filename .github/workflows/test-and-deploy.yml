@@ -7,8 +7,7 @@ on:
 
 jobs: 
   greeting:
-    name: say hello
     runs-on: ubuntu-latest
     steps:
-      - name: greeting
+      - name: say hello
         run: echo 'hi there!'
