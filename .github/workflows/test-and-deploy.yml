@@ -26,7 +26,7 @@ jobs:
           pg user: Ms_Theresa_Est
           pg password: pazzwurd1!
       - name: run integration tests
-        run: PGDATABASE=test_db PGUSER=Ms_Theresa_Est PGPASSWORD pazzwurd1! npm test
+        run: PGDATABASE=test_db PGUSER=Ms_Theresa_Est PGPASSWORD=pazzwurd1! npm test
   deploy:
     runs-on: ubuntu-latest
     needs: test
