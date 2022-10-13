@@ -8,6 +8,14 @@ exports.fetchSnacks = () => {
 
 exports.addSnack = (newSnack) => {
   const { snack_name, snack_description } = newSnack;
+
+  if (!snack_name || !snack_description) {
+    return Promise.reject({
+      status: 400,
+      msg: 'you did a bad request not my problem',
+    });
+  }
+
   return pool
     .query(
       `INSERT INTO snacks (snack_name, snack_description) VALUES ($1, $2) RETURNING *;`,

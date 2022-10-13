@@ -6,11 +6,16 @@ function getSnacks(request, response) {
   });
 }
 
-function postSnack(request, response) {
+function postSnack(request, response, next) {
   const newSnack = request.body;
-  addSnack(newSnack).then((snack) => {
-    response.status(201).send({ snack });
-  });
+  console.log(newSnack);
+  addSnack(newSnack)
+    .then((snack) => {
+      response.status(201).send({ snack });
+    })
+    .catch((err) => {
+      next(err);
+    });
 }
 
 module.exports = { getSnacks, postSnack };
