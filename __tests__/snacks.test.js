@@ -20,7 +20,7 @@ describe('GET /api/snacks', () => {
       .then(({ body }) => {
         const { snacks } = body;
         expect(snacks).toBeInstanceOf(Array);
-        expect(snacks).toHaveLength(6);
+        expect(snacks).toHaveLength(7);
         snacks.forEach((snack) => {
           expect(snack).toMatchObject({
             snack_id: expect.any(Number),
