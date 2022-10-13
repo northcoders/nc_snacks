@@ -2,7 +2,7 @@ name: Test and Deploy
 on: 
   push:
     branches:
-      cicd-prepping
+      - cicd-prepping
 
 jobs: 
   greeting:
@@ -10,3 +10,17 @@ jobs:
     steps: 
       - name: Say Hello
         run: echo 'hi there!'
+  test: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout and clone
+        run: checkout@v2
+      - name: install dependencies
+        run: npm install
+      - name: setup postgresql
+        uses: harmon758/postgresql-action@v1
+        with:
+          pg database: test_db
+          pg user: Ms_Theresa_Est
+          pg password: pazzwurd1!
+        run: PGDATABASE=test_db PGUSER=Ms_Theresa_Est PGPASSWORD pazzwurd1! npm test
