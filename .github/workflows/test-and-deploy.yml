@@ -1,29 +1,30 @@
-name: Test and deploy
+name: Test & Deploy
 
-on: 
+on:
   push:
-    branches: 
-      - cicd-prepping
+    branches:
+      - main
+
 jobs:
-  greeting:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Say Hello
-        run: echo 'Hi there 2'
   test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout and clone repo
+      - name: Checkout Repo
         uses: actions/checkout@v2
-      - name: Install Dependencies
-        run: npm install
-      - name: Setup Postgres
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+
+      - name: Use PostgreSQL
         uses: harmon758/postgresql-action@v1
         with:
-          postgresql db: nc_snacks
-          postgresql user: Ms_Theresa_Est
-          postgresql password: blorpbloop
-          postgresql entryport: 5432
-      - name: Run Integration Tests
-        run: PGDATABASE=nc_snacks PG_PORT=5432 PGUSER=Ms_Theresa_Est PGPASSWORD=blorpbloop npm test
-        
+          postgresql db: 'my_db'
+          postgresql user: 'test_user'
+          postgresql password: 'test_password'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: PGDATABASE=my_db PGUSER=test_user PGPASSWORD=test_password npm t
