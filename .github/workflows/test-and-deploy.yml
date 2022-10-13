@@ -20,9 +20,9 @@ jobs:
       - name: setup postgres
         uses: harmon758/postgresql-action@v1
         with:
-          postgresql db: nc_snacks_test
+          postgresql db: test_db
           postgresql user: Ms_Theresa_Est
           postgresql password: blorpbloop
       - name: run Integration Tests
-        run: PGDATABASE=nc_snacks_test PGUSER=Ms_Theresa_Est PGPASSWORD=blorpbloop npm test
+        run: PGDATABASE=test_db PGUSER=Ms_Theresa_Est PGPASSWORD=blorpbloop npm test
         
