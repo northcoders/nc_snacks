@@ -1,4 +1,4 @@
-const db = require('../connection.js')
+const db = require('../index.js')
 const format = require('pg-format');
 
 const seed = async ({ snacksData, drinksData, categoriesData }) => {
