@@ -7,7 +7,8 @@
     "test": "npm run seed-test && jest",
     "dev": "node app.js",
     "seed-test": "psql -f db/seed-test.sql",
-    "seed-dev": "psql -f db/seed-dev.sql"
+    "seed-dev": "psql -f db/seed-dev.sql",
+    "start": "node listen.js"
   },
   "keywords": [],
   "author": "",
