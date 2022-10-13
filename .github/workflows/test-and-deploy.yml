@@ -1,47 +1,42 @@
-
-
-name: Test & Deploy
-
-on:
+name: Test and Deploy
+on: 
   push:
     branches:
-      - main
+      - cicd-prepping
 
-jobs:
-  test:
-    name: Test
+jobs: 
+  greeting:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Use Node.js
+    steps: 
+      - name: Say Hello
+        run: echo 'hi there!'
+  test: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout and clone repo
+        uses: actions/checkout@v3
+      - name: use Node
         uses: actions/setup-node@v2
-
-      - name: Use PostgreSQL
+      - name: install dependencies
+        run: npm install
+      - name: setup postgresql
         uses: harmon758/postgresql-action@v1
         with:
-          pg db: 'my_db'
-          pg user: 'test_user'
-          pg password: 'test_password'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: PGDATABASE=my_db PGUSER=test_user PGPASSWORD=test_password npm t
-
+          postgresql database: test_db
+          postgresql user: Ms_Theresa_Est
+          postgresql password: pazzwurd1!
+      - name: run integration tests
+        run: PGDATABASE=test_db PGUSER=Ms_Theresa_Est PGPASSWORD=pazzwurd1! npm test
   deploy:
     runs-on: ubuntu-latest
     needs: test
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Deploy to Heroku
+    steps: 
+      - name: checkout and clone repo
+        uses: actions/checkout@v3
+      - name: deploy to heroku
         uses: akhileshns/heroku-deploy@v3.12.12
-        with:
+        with: 
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-          heroku_email: ${{secrets.HEROKU_EMAIL_ADDRESS}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
 
