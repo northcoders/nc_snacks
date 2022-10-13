@@ -1,43 +1,12 @@
-name: Test and deploy
+name: Test and Deploy
 
-on:
-  push:
+on: 
+  merge:
     branches:
-      cicd-prepping
+      - cicd-prepping
 
-jobs: 
+jobs:
   greeting:
-    runs-on: ubuntu-latest
     steps:
       - name: say hello
-        run: echo 'hi there!'
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v2
-      - name: use node
-        uses: actions/setup-node@v2
-      - name: use postgresql
-        uses: harmon758/postgresql-action@v1
-        with: 
-          postgresql db: test_db
-          postgresql user: 'tests_daily'
-          postgresql password: 'pa55wurd!'
-      - name: install dependencies
-        run: npm i
-      - name: run tests
-        run: PGDATABASE=test_db PGUSER=tests_daily PGPASSWORD=pa55wurd! npm test
-  deploy: 
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v2
-      - name: deploy to heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with: 
-            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-            heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-            heroku_email: ${{secrets.HEROKU_EMAIL}}
-    
+        run: echo "hello there!"
