@@ -1,7 +1,6 @@
 const express = require('express');
 const { getSnacks, postSnack } = require('./controllers/snacksController');
 const { getDrinkById } = require('./controllers/drinksController');
-const { removeAllListeners } = require('nodemon');
 
 const app = express();
 
