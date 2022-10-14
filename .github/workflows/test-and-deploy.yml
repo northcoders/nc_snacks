@@ -29,3 +29,14 @@ jobs:
         run: npm i
       - name: run tests
         run: PGDATABASE=test_db PGUSER=Tests_Daily PGPASSWORD=password
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone and checkout
+        uses: actions/checkout@v3
+      - name: deploy to heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
