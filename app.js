@@ -1,14 +1,13 @@
 const express = require('express');
 const { getSnacks, postSnack } = require('./controllers/snacksController');
 const { getDrinkById } = require('./controllers/drinksController');
-const { removeAllListeners } = require('nodemon');
 
 const app = express();
 
 app.use(express.json());
 
 app.get('/api', (req, res) => {
-  res.status(200).send({ msg: 'two little bears ʕ•́ᴥ•̀ʔっʕ•́ᴥ•̀ʔっ' });
+  res.status(200).send({ msg: 'FOUR little bears! ʕ•́ᴥ•̀ʔっʕ•́ᴥ•̀ʔっʕ•́ᴥ•̀ʔっʕ•́ᴥ•̀ʔっ' });
 });
 
 app.get('/api/snacks', getSnacks);

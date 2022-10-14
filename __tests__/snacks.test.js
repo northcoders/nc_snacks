@@ -1,10 +1,16 @@
 const request = require('supertest');
 const app = require('../app');
 const db = require('../db');
+const seed = require('../db/seeds/seed');
+const data = require("../db/data/test-data/")
 
 afterAll(() => {
-  if (db.end) db.end();
+  db.end();
 });
+
+beforeEach(() => { 
+  return seed(data)
+})
 
 describe('GET /api/snacks', () => {
   test('status:200, responds with an array of snack objects', () => {
