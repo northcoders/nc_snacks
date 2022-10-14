@@ -10,3 +10,25 @@ jobs:
     steps: 
       - name: say hello
         run: echo "hiiii northcoders!"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone and checkout our repo
+        uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v3
+      - name: setup postgresql
+        uses: harmon758/postgresql-action@v1
+        with:
+          postgresql db: test_db
+          postgresql user: Tests_Daily
+          postgresql password: pa55wurd!
+      - name: install dependencies
+        run: npm i
+      - name: run tests
+        run: PGDATABASE=test_db PGUSER=Tests_Daily PGPASSWORD=pa55wurd! npm t
+      
+
+
+
+
