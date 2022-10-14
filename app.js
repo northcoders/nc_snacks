@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/api', (req, res) => {
-  res.status(200).send({ msg: 'two little bears! ʕ•́ᴥ•̀ʔっʕ•́ᴥ•̀ʔっ' });
+  res.status(200).send({ msg: 'four little bears!!! ʕ•́ᴥ•̀ʔっʕ•́ᴥ•̀ʔっʕ•́ᴥ•̀ʔっʕ•́ᴥ•̀ʔっ' });
 });
 
 app.get('/api/snacks', getSnacks);
