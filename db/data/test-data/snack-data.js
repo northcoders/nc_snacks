@@ -1,26 +1,26 @@
 module.exports = [
     {
-        snack_name: 'Kit Kat'
-        , snack_description: 'time for a break'
+        snack_name: 'Snack 1',
+        snack_description: 'Snack description 1'
     },
     {
-        snack_name: 'Hobnob',
-        snack_description: 'a modern classic'
+        snack_name: 'Snack 2',
+        snack_description: 'Snack description 2'
     },
     {
-        snack_name: 'Banana',
-        snack_description: 'monkeys open them upside down'
+        snack_name: 'Snack 4',
+        snack_description: 'Snack description 4'
     },
     {
-        snack_name: 'Chocolate Covered Raisins',
-        snack_description: 'you can never stop at one'
+        snack_name: 'Snack 6',
+        snack_description: 'Snack description 6'
     },
     {
-        snack_name: 'Butter Croissant',
-        snack_description: 'always appreciated'
+        snack_name: 'Snack 3',
+        snack_description: 'Snack description 3'
     },
     {
-        snack_name: 'Crisps',
-        snack_description: 'actually belong to Jim and he doesn\'t know i\'m stealing them, shhhhhh'
+        snack_name: 'Snack 5',
+        snack_description: 'Snack description 5'
     },
 ]
