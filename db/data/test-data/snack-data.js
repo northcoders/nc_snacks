@@ -12,15 +12,11 @@ module.exports = [
         snack_description: 'Snack description 4'
     },
     {
-        snack_name: 'Snack 6',
+        snack_name: 'Snack 5',
         snack_description: 'Snack description 6'
     },
     {
         snack_name: 'Snack 3',
         snack_description: 'Snack description 3'
-    },
-    {
-        snack_name: 'Snack 5',
-        snack_description: 'Snack description 5'
     },
 ]

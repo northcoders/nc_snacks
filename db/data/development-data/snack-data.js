@@ -1,7 +1,7 @@
 module.exports = [
     {
-        snack_name: 'Kit Kat'
-        , snack_description: 'time for a break'
+        snack_name: 'Kit Kat',
+        snack_description: 'time for a break'
     },
     {
         snack_name: 'Hobnob',
@@ -20,7 +20,22 @@ module.exports = [
         snack_description: 'always appreciated'
     },
     {
-        snack_name: 'Crisps',
+        snack_name: 'Wheat Crunchies',
         snack_description: 'actually belong to Jim and he doesn\'t know i\'m stealing them, shhhhhh'
     },
+    {
+        snack_name: 'Breadsticks',
+        snack_description: 'boooooooring',
+    },
+    {
+        snack_name: 'Malt loaf',
+        snack_description: 'like loft insulation for your tummy'
+    },
+    {
+        snack_name: 'Pringles',
+        snack_description: 'totally tubular!'
+    },
+    {
+        snack_name: 'Space Raiders',
+        snack_description: 'out of this world'}
 ]

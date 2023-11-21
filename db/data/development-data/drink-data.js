@@ -4,12 +4,14 @@ module.exports = [
         drink_description: 'Manchester\'s finest'
     },
     {
-        drink_name: 'Bovril', drink_description: 'a meal that you don\'t have to chew'
+        drink_name: 'Bovril',
+        drink_description: 'a meal that you don\'t have to chew'
     },
     {
         drink_name: 'Banana Milk',
         drink_description: 'monkeys drink it upside down'
-    },{
+    },
+    {
         drink_name: 'Coffee',
         drink_description: 'devs love Java'
     },{
@@ -19,4 +21,11 @@ module.exports = [
         drink_name: 'Tea',
         drink_description: 'devs love PG tips'
     },
+    {
+        drink_name: 'San Pellegrino',
+        drink_description: "someone's doing alright"
+    }, {
+        drink_name: 'PandaPop',
+        drink_description: 'hello, old friend'
+    }
   ]
