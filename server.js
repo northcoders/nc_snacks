@@ -52,7 +52,7 @@ const server = http.createServer((request, response) => {
               }
              })
           })
-    } //Do not take the example any further, but encourage people to think about what would need to happen to the request body now.
+    }
   }
 });
 
@@ -60,41 +60,3 @@ server.listen(8080, (err) => {
   if (err) console.log(err);
   else console.log('Server listening on port: 8080');
 });
-
-
-// const server = http.createServer((req, res) => {
-//   const { url, method } = req;
-//   if (url === '/') {
-//     // ...
-//   }
-//   if (url === '/api/cats') {
-//     if (method === 'GET') {
-//       // ...
-//     }
-//     if (method === 'POST') {
-//       let body = '';
-//       req.on('data', (packet) => {
-//         body += packet.toString();
-//       });
-//       req.on('end', () => {
-//         const newCat = JSON.parse(body);
-//         fs.readFile('data/cats.json', 'utf-8', (err, fileContents) => {
-//           if (err) console.log(err);
-//           else {
-//             const cats = JSON.parse(fileContents);
-//             const newCats = [...cats, newCat];
-//             fs.writeFile('data/cats.json', JSON.stringify(newCats), (err) => {
-//               if (err) console.log(err);
-//               else {
-//                 res.setHeader('Content-Type', 'application/json');
-//                 res.statusCode = 201;
-//                 res.write(JSON.stringify({ cat: addedCat }));
-//                 res.end();
-//               }
-//             });
-//           }
-//         });
-//       });
-//     }
-//   }
-// });
