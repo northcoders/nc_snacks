@@ -16,6 +16,11 @@
         "snack_name": "Snack E",
         "snack_description": "Snack description E"
     },
+    {   
+        "snack_id": 3,
+        "snack_name": "Snack C",
+        "snack_Cescription": "Snack description C"
+    },
     {
         "snack_id": 6,
         "snack_name": "Snack F",
