@@ -6,7 +6,7 @@ const server = http.createServer((request, response) => {
   const { url, method } = request;
   console.log(`Received a ${method} request on ${url}`);
 
-  if (url === '/') {
+  if (url === '/api') {
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
     response.write(JSON.stringify({ msg: 'hello world' }));
