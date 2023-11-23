@@ -1,18 +1,26 @@
 [
-    {   "snack_id": 1,
+    {
+        "snack_id": 1,
         "snack_name": "Snack A",
         "snack_description": "Snack description B"
     },
-    {   "snack_id": 2,
+    {
+        "snack_id": 2,
         "snack_name": "Snack B",
         "snack_description": "Snack description B"
     },
-    {   
+    {
+        "snack_id": 3,
+        "snack_name": "Snack C",
+        "snack_description": "Snack description C"
+    },
+    {
         "snack_id": 4,
         "snack_name": "Snack D",
         "snack_description": "Snack description D"
     },
-    {   "snack_id": 5,
+    {
+        "snack_id": 5,
         "snack_name": "Snack E",
         "snack_description": "Snack description E"
     },

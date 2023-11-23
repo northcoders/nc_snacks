@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const fs = require('fs/promises')
 
 app.use(express.json())
 
@@ -8,19 +9,34 @@ app.get('/api', (request, response) => {
 })
 
 app.get('/api/snacks', (request, response) => { 
-  const { snack_name } = request.query;
-  console.log(snack_name)
-  // console log this and then ask them to think about what comes next
+  fs.readFile('./data/snack-data.json', 'utf-8')
+    .then((fileContents) => { 
+      const snacks = JSON.parse(fileContents)
+      response.status(200).send({snacks})
+    })
 })
 
-app.get('/api/snacks/:snack_id', (request, response) => { 
+app.get('/api/snacks/:snack_id', (request, response) => {
   const { snack_id } = request.params;
-  // console log this and then ask them to think about what comes next
+  fs.readFile('./data/snack-data.json', 'utf-8')
+    .then((fileContents) => {
+      const snacks = JSON.parse(fileContents);
+      const singleSnack = snacks.filter((snack) => {
+        return snack.snack_id === +snack_id;
+      });
+      response.status(200).send({ snack: singleSnack });
+    });
 })
 
 app.post('/api/snacks', (request, response) => {
-  console.log(request.body)
-  // add/remove app.use(express.json()) to demonstrate what's happening here.
+  const newSnack = request.body;
+  fs.readFile('data/snack-data.json', 'utf-8').then((fileContents) => {
+    const snacks = JSON.parse(fileContents);
+    const allSnacks = [...snacks, newSnack];
+    return fs.writeFile('data/snack-data.json', JSON.stringify(allSnacks, null, 4));
+  }).then(() => { 
+    response.status(201).send({"snack added": newSnack})
+  })
 })
 
 app.listen(8080, (err) => { 
