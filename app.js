@@ -9,12 +9,9 @@ app.get('/api', (request, response) => {
 })
 
 app.get('/api/snacks', (request, response) => { 
-  fs.readFile('./data/snack-data.json', 'utf-8').then((fileContents) => { 
-      const snacks = JSON.parse(fileContents);
-      response.status(200).send({ snacks });
-  }).catch((err) => { 
-    console.log("oh no, an error!")
-  })
+  const { snack_name } = request.query;
+  console.log(snack_name)
+  // console log this and then ask them to think about what comes next
 })
 
 app.get('/api/snacks/:snack_id', (request, response) => { 
