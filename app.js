@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const fs = require('fs/promises')
+const fs = require('fs/promises');
+const getSnackBySnackId = require('./controllers/snacks.controllers');
 
 app.use(express.json())
 
@@ -14,10 +15,7 @@ app.get('/api/snacks', (request, response) => {
   // console log this and then ask them to think about what comes next
 })
 
-app.get('/api/snacks/:snack_id', (request, response) => { 
-  const { snack_id } = request.params;
-  // console log this and then ask them to think about what comes next
-})
+app.get('/api/snacks/:snack_id', getSnackBySnackId)
 
 app.post('/api/snacks', (request, response) => {
   console.log(request.body)
