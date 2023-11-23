@@ -1,22 +1,24 @@
 [
-    {
-        "snack_name": "Snack 1",
-        "snack_description": "Snack description 1"
+    {   "snack_id": 1,
+        "snack_name": "Snack A",
+        "snack_description": "Snack description B"
+    },
+    {   "snack_id": 2,
+        "snack_name": "Snack B",
+        "snack_description": "Snack description B"
+    },
+    {   
+        "snack_id": 4,
+        "snack_name": "Snack D",
+        "snack_description": "Snack description D"
+    },
+    {   "snack_id": 5,
+        "snack_name": "Snack E",
+        "snack_description": "Snack description E"
     },
     {
-        "snack_name": "Snack 2",
-        "snack_description": "Snack description 2"
-    },
-    {
-        "snack_name": "Snack 4",
-        "snack_description": "Snack description 4"
-    },
-    {
-        "snack_name": "Snack 5",
-        "snack_description": "Snack description 6"
-    },
-    {
-        "snack_name": "Snack 3",
-        "snack_description": "Snack description 3"
+        "snack_id": 6,
+        "snack_name": "Snack F",
+        "snack_description": "Snack description F"
     }
 ]
