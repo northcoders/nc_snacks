@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const fs = require('fs/promises')
+const fs = require('fs/promises');
+const getSnackBySnackId = require('./controllers/snacks.controllers');
 
 app.use(express.json())
 
@@ -16,17 +17,7 @@ app.get('/api/snacks', (request, response) => {
     })
 })
 
-app.get('/api/snacks/:snack_id', (request, response) => {
-  const { snack_id } = request.params;
-  fs.readFile('./data/snack-data.json', 'utf-8')
-    .then((fileContents) => {
-      const snacks = JSON.parse(fileContents);
-      const singleSnack = snacks.filter((snack) => {
-        return snack.snack_id === +snack_id;
-      });
-      response.status(200).send({ snack: singleSnack });
-    });
-})
+app.get('/api/snacks/:snack_id', getSnackBySnackId)
 
 app.post('/api/snacks', (request, response) => {
   const newSnack = request.body;
