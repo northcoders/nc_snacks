@@ -33,9 +33,6 @@ VALUES
   ('Gyoza', 'Like a tiny pasty', 450, 2),
   ('Vol-au-vents', 'ooh lala!', 320, 2);
 
-SELECT snack_name AS title, snack_description, price_in_pence, category_name FROM snacks
-JOIN categories ON snacks.category_id = categories.category_id;
-
 CREATE TABLE vending_machines (
     vm_id SERIAL PRIMARY KEY,
     vm_location VARCHAR(100),
@@ -70,10 +67,3 @@ VALUES
 (4, 4),
 (6, 4), 
 (4, 2);
-
-SELECT AVG(vm_rating) FROM vending_machines;
-
-SELECT (vm_location), COUNT(snack_name) AS no_of_snacks_available FROM snacks_vending_machines
-JOIN vending_machines ON vending_machines.vm_id = snacks_vending_machines.vm_id
-JOIN snacks ON snacks.snack_id = snacks_vending_machines.snack_id
-GROUP BY vm_location;
