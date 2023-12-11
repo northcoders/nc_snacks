@@ -16,6 +16,7 @@ app.get('/api/snacks', (request, response) => {
     })
 })
 
+<<<<<<< HEAD
 app.get('/api/snacks/:snack_id', (request, response) => {
   const { snack_id } = request.params;
   fs.readFile('./data/snack-data.json', 'utf-8')
@@ -27,6 +28,9 @@ app.get('/api/snacks/:snack_id', (request, response) => {
       response.status(200).send({ snack: singleSnack });
     });
 })
+=======
+app.get('/api/snacks/:snack_id', getSnackBySnackId)
+>>>>>>> 2ad29186cce9e41540dc4fdd256d1f27aa7612dc
 
 app.post('/api/snacks', (request, response) => {
   const newSnack = request.body;
