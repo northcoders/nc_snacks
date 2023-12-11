@@ -5,7 +5,7 @@ const fetchSnackBySnackId = (id) => {
         const parsedSnacks = JSON.parse(fileContents)
         return parsedSnacks.filter((snack) => { 
             return snack.snack_id === +id
-        })
+        })[0]
     })
 };
 
