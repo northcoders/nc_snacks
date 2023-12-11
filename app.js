@@ -15,6 +15,7 @@ app.get('/api/snacks', (request, response) => {
 
 app.get('/api/snacks/:snack_id', (request, response) => { 
   const { snack_id } = request.params;
+  console.log(snack_id)
   // console log this and then ask them to think about what comes next
 })
 
