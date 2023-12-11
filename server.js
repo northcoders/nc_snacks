@@ -30,9 +30,27 @@ const server = http.createServer((request, response) => {
               body += data
           })
           request.on('end', () => { 
-              console.log(body)
+            let newSnack = JSON.parse(body)
+            fs.readFile('./data/snack-data.json', 'utf-8',(err, fileContents) => {
+              if (err) {
+                console.log(err);
+              } else { 
+                const snacks = JSON.parse(fileContents)
+                const newSnacks = [...snacks, newSnack]
+                fs.writeFile('./data/snack-data.json', JSON.stringify(newSnacks, null, 4), (err) => {
+                  if (err) {
+                    console.log(err);
+                  } else { 
+                      response.setHeader('Content-Type', 'application/json');
+                      response.statusCode = 201;
+                      response.write(JSON.stringify({ snack: newSnack }));
+                      response.end();
+                  }
+                 })
+              }
+             })
           })
-    } //Do not take the example any further, but encourage people to think about what would need to happen to the request body now.
+    }
   }
 });
 
