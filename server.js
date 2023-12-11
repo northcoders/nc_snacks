@@ -1,5 +1,5 @@
 const http = require('http');
-const fs = require('fs');
+const fs = require('fs/promises');
 
 
 const server = http.createServer((request, response) => {
@@ -15,16 +15,14 @@ const server = http.createServer((request, response) => {
 
   if (url === '/api/snacks') {
     if (method === 'GET') {
-      fs.readFile('./data/snack-data.json', 'utf-8', (err, fileContents) => {
-        if (err) console.log(err);
-        else {
-          const snacks = JSON.parse(fileContents);
+      fs.readFile('./data/snack-data.json', 'utf-8').then((fileContents) => { 
+        const snacks = JSON.parse(fileContents);
           response.setHeader('Content-Type', 'application/json');
           response.statusCode = 200;
           response.write(JSON.stringify({ snacks }));
           response.end();
-        }
-      });
+      })
+
     }
       if (method === 'POST') {
           let body = ""
