@@ -8,7 +8,7 @@ function getSnacks() {
     });
 }
 
-// getSnacks()
+getSnacks()
 
 function getSnackById(id) { 
     pool.query(`SELECT * FROM snacks WHERE snack_id=${id}`).then(({ rows: [snack] }) => {
