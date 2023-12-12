@@ -1,6 +1,7 @@
 const db = require('./connection.js');
 const format = require("pg-format")
-const {categoriesData, snacksData, vendingMachineData} = require('./data')
+const { categoriesData, snacksData, vendingMachineData } = require('./data')
+const { createRef, formatSnacksData } = require("../utils/seed-formatting.js")
 
 const seed = () => { 
     return db.query('DROP TABLE IF EXISTS snacks;').then(() => {
@@ -40,10 +41,18 @@ const seed = () => {
         const insertCategoriesQueryString = format(`
             INSERT INTO categories (category_name) VALUES %L RETURNING *;`,
             formattedCategories)
-        return db.query(insertCategoriesQueryString)
-    }).then(({ rows }) => { 
         
-        // how are we going to give each snack a category id?
+        return db.query(insertCategoriesQueryString)
+        
+    }).then(({ rows }) => { 
+
+        const refObj = createRef(rows)
+
+        const formattedSnacks = formatSnacksData(snacksData, refObj)
+
+        const queryStr = format(`INSERT INTO snacks (snack_name, snack_description, price_in_pence, category_id) VALUES %L`, formattedSnacks)
+
+        return db.query(queryStr)
     })
 };
 
