@@ -23,7 +23,7 @@ app.get('/api/snacks/:snack_id', (request, response) => {
       const snacks = JSON.parse(fileContents);
       const singleSnack = snacks.filter((snack) => {
         return snack.snack_id === +snack_id;
-      });
+      })[0];
       response.status(200).send({ snack: singleSnack });
     });
 })
