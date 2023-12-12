@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS nc_snacks;
-CREATE DATABASE nc_snacks;
-
 \c nc_snacks
 
 CREATE TABLE categories(
