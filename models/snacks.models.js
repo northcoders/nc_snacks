@@ -1,7 +1,7 @@
 const fs = require('fs/promises')
 
 const fetchSnacks = () => { 
-    return fs.readFile('./data/snack-data.json', 'utf-8')
+    return fs.readFile('db/data/snack-data.json', 'utf-8')
     .then((fileContents) => { 
         const snacks = JSON.parse(fileContents)
         return snacks
@@ -9,7 +9,7 @@ const fetchSnacks = () => {
 }
 
 const fetchSnackBySnackId = (id) => { 
-    return fs.readFile(`${__dirname}/../data/snack-data.json`).then((fileContents) => { 
+    return fs.readFile(`db/data/snack-data.json`).then((fileContents) => { 
         const parsedSnacks = JSON.parse(fileContents)
         return parsedSnacks.filter((snack) => { 
             return snack.snack_id === +id
