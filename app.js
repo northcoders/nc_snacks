@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-const fs = require('fs/promises');
-const getSnackBySnackId = require('./controllers/snacks.controllers');
+const {getSnacks, getSnackBySnackId, postSnack} = require('./controllers/snacks.controllers');
 
 app.use(express.json())
 
@@ -9,18 +8,11 @@ app.get('/api', (request, response) => {
   response.status(200).send({message: 'Hello world!'})
 })
 
-app.get('/api/snacks', (request, response) => { 
-  const { snack_name } = request.query;
-  console.log(snack_name)
-  // console log this and then ask them to think about what comes next
-})
+app.get('/api/snacks', getSnacks)
 
 app.get('/api/snacks/:snack_id', getSnackBySnackId)
 
-app.post('/api/snacks', (request, response) => {
-  console.log(request.body)
-  // add/remove app.use(express.json()) to demonstrate what's happening here.
-})
+app.post('/api/snacks', postSnack)
 
 app.listen(8080, (err) => { 
   if (err) {
