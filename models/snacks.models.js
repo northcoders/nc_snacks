@@ -1,29 +1,22 @@
 const fs = require('fs/promises')
+const db = require('../db/connection')
 
 const fetchSnacks = () => { 
-    return fs.readFile('db/data/snack-data.json', 'utf-8')
-    .then((fileContents) => { 
-        const snacks = JSON.parse(fileContents)
-        return snacks
+    return db.query(`SELECT * FROM snacks`).then(({ rows }) => { 
+        return rows
     })
 }
 
 const fetchSnackBySnackId = (id) => { 
-    return fs.readFile(`db/data/snack-data.json`).then((fileContents) => { 
-        const parsedSnacks = JSON.parse(fileContents)
-        return parsedSnacks.filter((snack) => { 
-            return snack.snack_id === +id
-        })[0]
+    console.log(id)
+    return db.query(`SELECT * FROM snacks WHERE snack_id=$1`, [id]).then(({ rows }) => { 
+        return rows[0]
     })
 };
 
 const addSnack = (newSnack) => { 
-    return fs.readFile('db/data/snack-data.json', 'utf-8')
-        .then((fileContents) => {
-            const snacks = JSON.parse(fileContents);
-            const allSnacks = [...snacks, newSnack];
-            return fs.writeFile('db/data/snack-data.json', JSON.stringify(allSnacks, null, 4));
-        })
+    const { snack_name, snack_description, price_in_pence, category_id } = newSnack
+    return db.query(`INSERT INTO snacks (snack_name, snack_description, price_in_pence, category_id) VALUES ($1, $2, $3, $4) RETURNING *`, [snack_name, snack_description, price_in_pence, category_id]).then(({ rows }))
 }
 
 
