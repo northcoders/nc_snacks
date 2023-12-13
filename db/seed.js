@@ -4,7 +4,7 @@ const { categoriesData, snacksData, vendingMachineData } = require('./data')
 const { createRef, formatSnacksData } = require("../utils/seed-formatting.js")
 
 const seed = () => { 
-    return db.query('DROP TABLE IF EXISTS snacks;').then(() => {
+    return db.query('DROP TABLE IF EXISTS snacks').then(() => {
         return db.query('DROP TABLE IF EXISTS categories');
     }).then(() => { 
         return db.query('DROP TABLE IF EXISTS vending_machines')

@@ -1,4 +1,4 @@
-const createRef = require('../utils/seed-formatting.js');
+const { createRef } = require('../utils/seed-formatting.js');
 
 describe("createRef", () => { 
     it("returns an empty object when passed and empty array", () => {

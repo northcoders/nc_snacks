@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const {getSnacks, getSnackBySnackId, postSnack} = require('./controllers/snacks.controllers');
+const {getVendingMachines, getVendingMachineById} = require('./controllers/vending-machines.controllers');
 
 app.use(express.json())
 
@@ -14,6 +15,10 @@ app.get('/api/snacks/:snack_id', getSnackBySnackId)
 
 app.post('/api/snacks', postSnack)
 
+app.get('/api/venders', getVendingMachines)
+
+app.get('/api/venders/:venderId', getVendingMachineById)
+
 app.listen(8080, (err) => { 
   if (err) {
     console.log(err);
@@ -21,3 +26,5 @@ app.listen(8080, (err) => {
     console.log('listening on 8080!')
   }
 });
+
+module.exports = app
