@@ -4,7 +4,7 @@ const db = require("../db/connection")
 const seed = require("../db/seed.js")
 
 beforeEach(() => { 
-    return seed()
+   return seed()
 })
 
 afterAll(() => { 
