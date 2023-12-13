@@ -6,7 +6,7 @@
   "scripts": {
     "test": "PGDATABASE=nc_snacks jest",
     "start": "nodemon",
-    "setup-dbs": "psql -f db/setup.sql && seed",
+    "setup-dbs": "psql -f db/setup.sql",
     "seed": "PGDATABASE=nc_snacks node db/run-seed.js"
   },
   "repository": {
