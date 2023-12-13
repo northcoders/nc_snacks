@@ -3,6 +3,14 @@ const app = require("../app.js");
 const db = require("../db/connection")
 const seed = require("../db/seed.js")
 
+beforeEach(() => { 
+    return seed()
+})
+
+afterAll(() => { 
+    return db.end()
+})
+
 describe("GET /api/snacks", () => { 
     it('responds with status 200 and an array containing data for all snacks',() => { 
         return request(app)
@@ -83,7 +91,7 @@ describe("GET /api/venders/:venderId", () => {
         .expect(200)
         .then(({ body }) => {
             expect(body.vendingMachine.id).toBe(3)
-            expect(body.vendingMachine.location).toBe('Vending Machine C')
+            expect(body.vendingMachine.location).toBe('Location C')
             expect(body.vendingMachine.rating).toBe(4)
         })
     })
