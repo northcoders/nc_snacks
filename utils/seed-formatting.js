@@ -8,7 +8,6 @@ const createRef = (categories) => {
 
 const formatSnacksData = (snacks, ref) => {
     return snacks.map((snack) => { 
-        console.log(snack)
         return [
             snack.snack_name,
             snack.snack_description,
