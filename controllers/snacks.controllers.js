@@ -17,7 +17,7 @@ const postSnack = (request, response) => {
     addSnack(newSnack).then(() => {
         response.status(201).send({ "snack added": newSnack });
     })
-   
 }
+
 
 module.exports = {getSnacks, getSnackBySnackId, postSnack}
