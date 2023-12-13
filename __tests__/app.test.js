@@ -3,6 +3,14 @@ const app = require("../app.js");
 const db = require("../db/connection")
 const seed = require("../db/seed.js")
 
+beforeEach(() => { 
+   return seed()
+})
+
+afterAll(() => { 
+    return db.end()
+})
+
 describe("GET /api/venders", () => { 
     it("responds with an array containing data for all vending machines", () => { 
         return request(app)
