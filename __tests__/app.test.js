@@ -3,6 +3,14 @@ const app = require("../app.js");
 const db = require("../db/connection")
 const seed = require("../db/seed.js")
 
+beforeEach(() => { 
+   return seed()
+})
+
+afterAll(() => { 
+    return db.end()
+})
+
 describe("GET /api/snacks", () => { 
     it('responds with status 200 and an array containing data for all snacks',() => { 
         return request(app)
