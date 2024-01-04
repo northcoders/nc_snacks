@@ -19,6 +19,10 @@ app.get('/api/venders', getVendingMachines)
 
 app.get('/api/venders/:venderId', getVendingMachineById)
 
+app.all('/*', (req, res) => {
+  res.status(404).send({ msg: 'Route not found' });
+})
+
 app.use((err, request, response, next) => { 
   if (err.code === '22P02') {
     response.status(400).send({ message: "Invalid id type" });
