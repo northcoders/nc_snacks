@@ -41,6 +41,22 @@ describe("GET /api/snacks/:snack_id", () => {
                 expect(snack.price_in_pence).toBe(150)
                 expect(snack.category_id).toBe(1)
 
+        })
+    })
+    it('responds with status 400 and an error message if passed an invalid snack id', () => { 
+        return request(app)
+            .get('/api/snacks/not-an-id')
+            .expect(400)
+            .then(({ body: { message } }) => { 
+                expect(message).toBe("Invalid id type")
+            })
+    })
+    it('responds with status 404 and an error message if passed a valid snack_id that does not exist in the database', () => { 
+        return request(app)
+            .get('/api/snacks/1000')
+            .expect(404)
+            .then(({ body: { message } }) => { 
+                expect(message).toBe("Id not found")
             })
     })
 })
@@ -91,7 +107,7 @@ describe("GET /api/venders/:venderId", () => {
         .expect(200)
         .then(({ body }) => {
             expect(body.vendingMachine.id).toBe(3)
-            expect(body.vendingMachine.location).toBe('Vending Machine C')
+            expect(body.vendingMachine.location).toBe('Location C')
             expect(body.vendingMachine.rating).toBe(4)
         })
     })

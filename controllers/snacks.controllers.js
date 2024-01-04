@@ -1,14 +1,18 @@
 const {fetchSnacks, fetchSnackBySnackId, addSnack} = require("../models/snacks.models");
 
-const getSnacks = (request, response) => { 
+const getSnacks = (request, response, next) => { 
     fetchSnacks().then((snacks) => { 
      response.status(200).send({snacks})
+    }).catch((err) => { 
+        next(err)
     })
 }
-const getSnackBySnackId = (request, response) => { 
+const getSnackBySnackId = (request, response, next) => { 
     const { snack_id } = request.params
     fetchSnackBySnackId(snack_id).then((snack) => { 
         response.status(200).send({snack})
+    }).catch((err) => { 
+        next(err)
     })
 };
 
