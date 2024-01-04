@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const {getSnacks, getSnackBySnackId, postSnack} = require('./controllers/snacks.controllers');
 const {getVendingMachines, getVendingMachineById} = require('./controllers/vending-machines.controllers');
+const { psqlErrorHandler, customErrorHandler, serverErrorHandler } = require('./error-handlers');
 
 app.use(express.json())
 
@@ -23,25 +24,11 @@ app.all('/*', (req, res) => {
   res.status(404).send({ msg: 'Route not found' });
 })
 
-app.use((err, request, response, next) => { 
-  if (err.code === '22P02') {
-    response.status(400).send({ message: "Invalid id type" });
-  } else { 
-    next(err)
-  }
-})
+app.use(psqlErrorHandler)
 
-app.use((err, request, response, next) => {
-  if (err.status && err.message) {
-    response.status(err.status).send({ message: err.message });
-  } else { 
-    next(err)
-  }
-})
+app.use(customErrorHandler)
 
-app.use((err) => { 
-  res.status(500).send({message: "Internal server error"})
-})
+app.use(serverErrorHandler)
 
 app.listen(8080, (err) => { 
   if (err) {
