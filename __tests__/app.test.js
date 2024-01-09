@@ -40,7 +40,6 @@ describe("GET /api/snacks/:snack_id", () => {
                 expect(snack.snack_description).toBe('Snack description C')
                 expect(snack.price_in_pence).toBe(150)
                 expect(snack.category_id).toBe(1)
-
         })
     })
     it('responds with status 400 and an error message if passed an invalid snack id', () => { 
