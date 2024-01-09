@@ -1,6 +1,6 @@
 [
-    { "location": "Vending Machine A", "rating": 1},
-    { "location": "Vending Machine B", "rating": 7},
-    { "location": "Vending Machine C", "rating": 4},
-    { "location": "Vending Machine D", "rating": 9}
+    { "location": "Location A", "rating": 1},
+    { "location": "Location B", "rating": 7},
+    { "location": "Location C", "rating": 4},
+    { "location": "Location D", "rating": 9}
 ]
