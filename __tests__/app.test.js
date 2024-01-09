@@ -91,7 +91,7 @@ describe("GET /api/venders/:venderId", () => {
         .expect(200)
         .then(({ body }) => {
             expect(body.vendingMachine.id).toBe(3)
-            expect(body.vendingMachine.location).toBe('Vending Machine C')
+            expect(body.vendingMachine.location).toBe('Location C')
             expect(body.vendingMachine.rating).toBe(4)
         })
     })
