@@ -11,7 +11,7 @@ const formatSnacksData = (snacks, ref) => {
         return [
             snack.snack_name,
             snack.snack_description,
-            snack['price-in-pence'],
+            snack['price_in_pence'],
             ref[snack.category]
         ]
     })
