@@ -1,8 +1,27 @@
 const fs = require('fs/promises')
 const db = require('../db/connection')
 
-const fetchSnacks = () => { 
-    return db.query(`SELECT * FROM snacks`).then(({ rows }) => { 
+const fetchSnacks = (category_id, sort_by = 'snack_name') => { 
+    const validSortBys = ['snack_name', 'price_in_pence', 'snack_description']
+
+    if (!validSortBys.includes(sort_by)) { 
+        return Promise.reject({ status: 400, message: 'bad request' })
+    }
+
+    let queryString = `SELECT * FROM snacks`
+    const queryVals = []
+
+    if (category_id) { 
+        queryString += ` WHERE category_id = $1`
+        queryVals.push(category_id)
+    }
+
+    queryString += ` ORDER BY ${sort_by}`
+    
+    return db.query(queryString, queryVals).then(({ rows }) => { 
+        if (rows.length === 0) { 
+            return Promise.reject({ status: 404, message: 'not found'})
+        }
         return rows
     })
 }

@@ -1,7 +1,8 @@
 const {fetchSnacks, fetchSnackBySnackId, addSnack} = require("../models/snacks.models");
 
 const getSnacks = (request, response, next) => { 
-    fetchSnacks().then((snacks) => { 
+    const { category_id, sort_by } = request.query
+    fetchSnacks(category_id, sort_by).then((snacks) => { 
      response.status(200).send({snacks})
     }).catch((err) => { 
         next(err)
