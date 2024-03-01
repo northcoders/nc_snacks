@@ -2,9 +2,10 @@ const request = require("supertest")
 const app = require("../app.js");
 const db = require("../db/connection")
 const seed = require("../db/seed.js")
+const data = require("../db/test-data")
 
 beforeEach(() => { 
-   return seed()
+   return seed(data)
 })
 
 afterAll(() => { 
@@ -26,6 +27,14 @@ describe("GET /api/snacks", () => {
                  expect(typeof snack.category_id).toBe("number") 
             })
         })
+    })
+    it('snacks are ordered by snack_name by default', () => { 
+        return request(app)
+            .get('/api/snacks')
+            .expect(200)
+            .then(({ body }) => { 
+                expect(body.snacks).toBeSortedBy('snack_name')
+            })
     })
 })
 
