@@ -3,7 +3,7 @@ const format = require("pg-format")
 const { categoriesData, snacksData, vendingMachineData } = require('./test-data/index.js')
 const { createRef, formatSnacksData } = require("../utils/seed-formatting.js")
 
-const seed = () => { 
+const seed = ({ snacksData, categoriesData, vendingMachineData}) => { 
     return db.query('DROP TABLE IF EXISTS snacks').then(() => {
         return db.query('DROP TABLE IF EXISTS categories');
     }).then(() => { 
