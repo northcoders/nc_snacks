@@ -32,6 +32,10 @@ app.post('/api/snacks', (request, response) => {
   const newSnack = request.body;
   fs.readFile('data/snack-data.json', 'utf-8').then((fileContents) => {
     const snacks = JSON.parse(fileContents);
+    const ids = snacks.map((snack) => {
+      return snack.snack_id
+    })
+    newSnack.snack_id = Math.max(...ids) + 1
     const allSnacks = [...snacks, newSnack];
     return fs.writeFile('data/snack-data.json', JSON.stringify(allSnacks, null, 4));
   }).then(() => { 
