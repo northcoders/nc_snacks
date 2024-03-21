@@ -28,6 +28,6 @@
     "pg-format": "^1.0.4"
   },
   "devDependencies": {
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.4"
   }
 }
