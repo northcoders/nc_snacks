@@ -19,12 +19,5 @@ app.get('/api/venders', getVendingMachines)
 
 app.get('/api/venders/:venderId', getVendingMachineById)
 
-app.listen(8080, (err) => { 
-  if (err) {
-    console.log(err);
-  } else { 
-    console.log('listening on 8080!')
-  }
-});
 
 module.exports = app
