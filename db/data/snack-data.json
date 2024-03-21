@@ -12,18 +12,21 @@
         "category": "Category B"
     },
     {
+        "snack_id": 3,
         "snack_name": "Snack D",
         "snack_description": "Snack description D",
         "price_in_pence": 120,
         "category": "Category C"
     },
     {
+        "snack_id": 4,
         "snack_name": "Snack E",
         "snack_description": "Snack description E",
         "price_in_pence": 70,
         "category": "Category A"
     },
     {
+        "snack_id": 5,
         "snack_name": "Snack C",
         "snack_description": "Snack description C",
         "price_in_pence": 150,
@@ -34,5 +37,11 @@
         "snack_description": "Snack description F",
         "price_in_pence": 200,
         "category": "Category B"
+    },
+    {
+        "snack_name": "Trucksncars",
+        "snack_description": "Time for a break",
+        "price_in_pence": 1200,
+        "category": "yep"
     }
 ]
