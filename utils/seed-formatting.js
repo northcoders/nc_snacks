@@ -17,4 +17,4 @@ const formatSnacksData = (snacks, ref) => {
     })
 }
 
-module.exports = {createRef, formatSnacksData}
+module.exports = { createRef, formatSnacksData }

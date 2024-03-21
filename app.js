@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const {getSnacks, getSnackBySnackId, postSnack} = require('./controllers/snacks.controllers');
-const {getVendingMachines, getVendingMachineById} = require('./controllers/vending-machines.controllers');
+const { getSnacks, getSnackBySnackId, postSnack } = require('./controllers/snacks.controllers');
+const { getVendingMachines, getVendingMachineById } = require('./controllers/vending-machines.controllers');
 const { psqlErrorHandler, customErrorHandler, serverErrorHandler } = require('./error-handlers');
 
 app.use(express.json())

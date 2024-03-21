@@ -1,4 +1,3 @@
-const fs = require('fs/promises')
 const db = require('../db/connection')
 
 const fetchSnacks = (category_id, sort_by = 'snack_name') => { 
@@ -44,4 +43,4 @@ const addSnack = (newSnack) => {
 }
 
 
-module.exports = {fetchSnacks, fetchSnackBySnackId, addSnack}
+module.exports = { fetchSnacks, fetchSnackBySnackId, addSnack }
