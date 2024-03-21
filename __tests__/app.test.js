@@ -2,9 +2,10 @@ const request = require("supertest")
 const app = require("../app.js");
 const db = require("../db/connection")
 const seed = require("../db/seed.js")
+const data = require("../db/test-data")
 
 beforeEach(() => { 
-   return seed()
+   return seed(data)
 })
 
 afterAll(() => { 
@@ -26,6 +27,58 @@ describe("GET /api/snacks", () => {
                  expect(typeof snack.category_id).toBe("number") 
             })
         })
+    })
+    it('snacks are ordered by snack_name by default', () => { 
+        return request(app)
+            .get('/api/snacks')
+            .expect(200)
+            .then(({ body }) => { 
+                expect(body.snacks).toBeSortedBy('snack_name')
+            })
+    })
+    it('takes a sort_by query and responds with snacks sorted by the given column name', () => { 
+        return request(app)
+            .get('/api/snacks?sort_by=price_in_pence')
+            .expect(200)
+            .then(({ body }) => { 
+                expect(body.snacks).toBeSortedBy('price_in_pence')
+            })
+    })
+    it('returns an error when given a non-valid sort_by', () => { 
+        return request(app)
+            .get('/api/snacks?sort_by=somethingbad')
+            .expect(400)
+            .then(({ body }) => { 
+                expect(body.message).toBe("bad request")
+            })
+    })
+    it('takes a category_id query and responds with only snacks from the given category', () => { 
+        return request(app)
+            .get('/api/snacks?category_id=2')
+            .expect(200)
+            .then(({ body: { snacks } }) => { 
+                expect(snacks.length).toBe(3)
+                snacks.forEach((snack) => { 
+                    expect(snack.category_id).toBe(2)
+                })
+
+            })
+    })
+    it('responds with a 400 error when passed a category_id of the wrong data type', () => { 
+        return request(app)
+            .get('/api/snacks?category_id=nonsense')
+            .expect(400)
+            .then(({ body }) => { 
+                expect(body.message).toBe("Invalid id type")
+            })
+    })
+    it('responds with a 404 error when passed a catagor_id that is valid but not present in our database', () => {
+        return request(app)
+            .get('/api/snacks?category_id=1000')
+            .expect(404)
+            .then(({ body }) => { 
+                expect(body.message).toBe('not found')
+            })
     })
 })
 
