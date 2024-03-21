@@ -2,7 +2,7 @@
   "name": "nc_snacks",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "listen.js",
   "scripts": {
     "test": "PGDATABASE=nc_snacks jest",
     "start": "nodemon",
