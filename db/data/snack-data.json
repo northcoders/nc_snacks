@@ -1,11 +1,13 @@
 [
     {
+        "snack_id": 1,
         "snack_name": "Snack A",
         "snack_description": "Snack description A",
         "price_in_pence": 100,
         "category": "Category B"
     },
     {   
+        "snack_id": 2,
         "snack_name": "Snack B",
         "snack_description": "Snack description B",
         "price_in_pence": 10,
@@ -33,15 +35,10 @@
         "category": "Category A"
     },
     {   
+        "snack_id": 6,
         "snack_name": "Snack F",
         "snack_description": "Snack description F",
         "price_in_pence": 200,
         "category": "Category B"
-    },
-    {
-        "snack_name": "Trucksncars",
-        "snack_description": "Time for a break",
-        "price_in_pence": 1200,
-        "category": "yep"
     }
 ]
