@@ -6,7 +6,7 @@ const {getVendingMachines, getVendingMachineById} = require('./controllers/vendi
 app.use(express.json())
 
 app.get('/api', (request, response) => { 
-  response.status(200).send({message: 'Hello world!'})
+  response.status(200).send({ message: 'Hello world!' })
 })
 
 app.get('/api/snacks', getSnacks)
