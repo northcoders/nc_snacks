@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/northcoders/nc_snacks#readme",
   "dependencies": {
-    "express": "^4.18.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
     "nodemon": "^3.0.1",
     "pg": "^8.11.3",
     "pg-format": "^1.0.4"
