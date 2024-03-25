@@ -15,6 +15,6 @@ exports.customErrorHandler = (err, request, response, next) => {
 }
 
 exports.serverErrorHandler = (err, request, response, next) => { 
-  res.status(500).send({message: "Internal server error"})
+  response.status(500).send({message: "Internal server error"})
 }
 
