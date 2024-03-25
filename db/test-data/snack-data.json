@@ -25,7 +25,7 @@
     },
     {
         "snack_name": "Snack C",
-        "snack_description": "Snack description C",
+       "snack_description": "Snack description C",
         "price_in_pence": 150,
         "category": "Category A"
     },
