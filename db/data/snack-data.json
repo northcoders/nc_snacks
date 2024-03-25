@@ -6,12 +6,8 @@
         "price_in_pence": 100,
         "category": "Category B"
     },
-<<<<<<< HEAD
-    {
-=======
     {   
         "snack_id": 2,
->>>>>>> 6f186ceeaec1c320f81964babe5437a9ddae7c07
         "snack_name": "Snack B",
         "snack_description": "Snack description B",
         "price_in_pence": 10,
@@ -34,16 +30,12 @@
     {
         "snack_id": 5,
         "snack_name": "Snack C",
-        "snack_description": "Snack description C",
+       "snack_description": "Snack description C",
         "price_in_pence": 150,
         "category": "Category A"
     },
-<<<<<<< HEAD
-    {
-=======
     {   
         "snack_id": 6,
->>>>>>> 6f186ceeaec1c320f81964babe5437a9ddae7c07
         "snack_name": "Snack F",
         "snack_description": "Snack description F",
         "price_in_pence": 200,
