@@ -15,10 +15,9 @@ const fetchSnackBySnackId = (id) => {
 
 const addSnack = (newSnack) => { 
     const { snack_name, snack_description, price_in_pence, category_id } = newSnack
-
     return db.query(`INSERT INTO snacks (snack_name, snack_description, price_in_pence, category_id) VALUES ($1, $2, $3, $4) RETURNING *`, [snack_name, snack_description, price_in_pence, category_id]).then(({ rows }) => { 
-        return rows
-    });
+        return rows[0]
+    })
 }
 
 
