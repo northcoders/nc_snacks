@@ -4,10 +4,10 @@
   "description": "",
   "main": "listen.js",
   "scripts": {
-    "test": "jest",
-    "start": "nodemon",
+    "test": "PGDATABASE=nc_snacks jest",
+    "start": "PGDATABASE=nc_snacks nodemon app.js",
     "setup-dbs": "psql -f db/setup.sql",
-    "seed": "node db/run-seed.js"
+    "seed": "PGDATABASE=nc_snacks node db/run-seed.js"
   },
   "repository": {
     "type": "git",
