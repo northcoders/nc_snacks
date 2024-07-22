@@ -5,8 +5,8 @@
   "main": "listen.js",
   "scripts": {
     "test": "PGDATABASE=nc_snacks jest",
-    "start": "PGDATABASE=nc_snacks nodemon app.js",
-    "setup-dbs": "psql -f db/setup.sql",
+    "start": "PGDATABASE=nc_snacks nodemon",
+    "setup-db": "psql -f db/setup.sql",
     "seed": "PGDATABASE=nc_snacks node db/run-seed.js"
   },
   "repository": {
