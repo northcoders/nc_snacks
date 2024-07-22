@@ -2,9 +2,10 @@ const request = require("supertest")
 const app = require("../app.js");
 const db = require("../db/connection")
 const seed = require("../db/seed.js")
+const data = require("../db/data")
 
 beforeEach(() => { 
-   return seed()
+   return seed(data)
 })
 
 afterAll(() => { 
@@ -59,7 +60,7 @@ describe("POST /api/snacks", () => {
                 category_id: 4,
             })
             .expect(201)
-            .then(({ body: { newSnack} }) => { 
+            .then(({ body: { newSnack } }) => { 
                 expect(newSnack.snack_name).toBe('DairyLea Dunkers')
                 expect(newSnack.snack_description).toBe("Finally a savoury alternative to yoghurt")
                 expect(newSnack.price_in_pence).toBe(122)
