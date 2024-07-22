@@ -19,7 +19,7 @@ const getSnackBySnackId = (request, response, next) => {
 const postSnack = (request, response) => {
     const newSnack = request.body;
     addSnack(newSnack).then((snack) => {
-        response.status(201).send({ "newSnack": snack });
+        response.status(201).send({ newSnack: snack });
     })
 }
 
