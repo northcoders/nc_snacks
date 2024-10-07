@@ -1,11 +1,14 @@
 const db = require('./connection.js');
 const format = require("pg-format")
-const {createRef, formatSnacksData} = require('../utils/seed-formatting.js')
+const { createRef, formatSnacksData } = require("../utils/seed-formatting.js")
 
-const seed = ({ categoriesData, snacksData }) => { 
+const seed = ({ categoriesData, snacksData, vendingMachineData }) => { 
     return db.query('DROP TABLE IF EXISTS snacks;').then(() => { 
         return db.query('DROP TABLE IF EXISTS categories')
-    }).then(() => { 
+    }).then(() => {
+        return db.query('DROP TABLE IF EXISTS vending_machines')
+    })
+        .then(() => { 
         return db.query(`CREATE TABLE categories(
             category_id SERIAL PRIMARY KEY,
             category_name VARCHAR(40) NOT NULL)`)
@@ -17,7 +20,13 @@ const seed = ({ categoriesData, snacksData }) => {
             price_in_pence INT,
             category_id INT REFERENCES categories(category_id))`
         )
-    }).then(() => {
+    }).then(() => { 
+        return db.query(`CREATE TABLE vending_machines (
+            vending_machine_id SERIAL PRIMARY KEY,
+            location VARCHAR,
+            rating INT)`)
+    })
+        .then(() => {
         const formattedCategories = categoriesData.map((category) => { 
             return [category.category_name]
         })
@@ -35,6 +44,12 @@ const seed = ({ categoriesData, snacksData }) => {
 
         const queryStr = format(`INSERT INTO snacks (snack_name, snack_description, price_in_pence, category_id) VALUES %L`, formattedSnacks)
 
+        return db.query(queryStr)
+    }).then(() => { 
+        const formattedVMs = vendingMachineData.map(({location, rating}) => { 
+            return [location, rating]
+        })
+        const queryStr = format(`INSERT INTO vending_machines (location, rating) VALUES %L`, formattedVMs)
         return db.query(queryStr)
     })
 };
