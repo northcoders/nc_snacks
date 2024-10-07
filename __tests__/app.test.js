@@ -77,7 +77,7 @@ describe("GET /api/venders", () => {
             .then(({ body }) => {
                 expect(body.vendingMachines.length).toBe(4)
                 body.vendingMachines.forEach((vendingMachine) => { 
-                    expect(typeof vendingMachine.id).toBe("number") 
+                    expect(typeof vendingMachine.vending_machine_id).toBe("number") 
                     expect(typeof vendingMachine.location).toBe("string") 
                     expect(typeof vendingMachine.rating).toBe("number")  
                 })
@@ -91,7 +91,7 @@ describe("GET /api/venders/:venderId", () => {
         .get('/api/venders/3')
         .expect(200)
         .then(({ body }) => {
-            expect(body.vendingMachine.id).toBe(3)
+            expect(body.vendingMachine.vending_machine_id).toBe(3)
             expect(body.vendingMachine.location).toBe('Location C')
             expect(body.vendingMachine.rating).toBe(4)
         })
