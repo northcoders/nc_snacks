@@ -1,6 +1,6 @@
 const seed = require('./seed.js');
 const db = require('./connection.js');
-const data = require('../db/dev-data')
+const data = require('./data/dev-data')
 
 seed(data)
 seed(data)
