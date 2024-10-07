@@ -8,7 +8,6 @@ const fetchSnacks = () => {
 }
 
 const fetchSnackBySnackId = (id) => { 
-    console.log(id)
     return db.query(`SELECT * FROM snacks WHERE snack_id=$1`, [id]).then(({ rows }) => { 
         return rows[0]
     })
